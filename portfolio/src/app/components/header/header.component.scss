@@ -35,9 +35,50 @@
     }
   }
 
+  &__hamburger {
+    display: none;
+    cursor: pointer;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 1001;
+    margin-right: 20px;
+
+    span {
+      width: 25px;
+      height: 3px;
+      background: var(--text-primary);
+      border-radius: 3px;
+      transition: all 0.3s ease;
+    }
+
+    @media (max-width: 992px) {
+      display: flex;
+    }
+
+    &.active {
+      span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+      span:nth-child(2) { opacity: 0; }
+      span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+    }
+  }
+
   &__nav {
-    @media (max-width: 768px) {
-      display: none; // TODO: Implementar menu mobile depois se necessário
+    @media (max-width: 992px) {
+      position: absolute;
+      top: 80px; 
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      flex-direction: column;
+      box-shadow: 0 10px 15px rgba(0,0,0,0.05);
+      border-bottom: 1px solid var(--border);
+      clip-path: polygon(0 0, 100% 0, 100% 0, 0 0); 
+      transition: clip-path 0.3s ease-in-out;
+      
+      &.active {
+        clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+      }
     }
 
     ul {
@@ -45,11 +86,22 @@
       gap: 32px;
       list-style: none;
 
+      @media (max-width: 992px) {
+        flex-direction: column;
+        align-items: center;
+        padding: 30px 0;
+        gap: 20px;
+      }
+
       li {
         a {
           color: var(--text-secondary);
           font-weight: 500;
           font-size: 0.95rem;
+
+          @media (max-width: 992px) {
+            font-size: 1.1rem;
+          }
 
           &:hover {
             color: var(--accent-cyan);
@@ -60,7 +112,7 @@
   }
 
   &__actions {
-    @media (max-width: 768px) {
+    @media (max-width: 992px) {
       display: none;
     }
   }

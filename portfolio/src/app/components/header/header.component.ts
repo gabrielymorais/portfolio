@@ -15,6 +15,7 @@ export class HeaderComponent {
   navLinks = [
     { label: 'Início',      href: 'hero' },
     { label: 'Sobre',       href: 'about' },
+    { label: 'Serviços',    href: 'services' },
     { label: 'Habilidades', href: 'skills' },
     { label: 'Projetos',    href: 'projects' },
     { label: 'Formação',    href: 'timeline' },
