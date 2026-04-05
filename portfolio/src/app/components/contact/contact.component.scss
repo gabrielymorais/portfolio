@@ -1,0 +1,173 @@
+.contact {
+  padding: 100px 0;
+  position: relative;
+  z-index: 1;
+
+  &__bento-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto auto;
+    gap: 24px;
+    max-width: 1000px;
+    margin: 0 auto;
+
+    @media (max-width: 992px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    
+    @media (max-width: 576px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .bento-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 10px 30px rgba(90, 50, 230, 0.05);
+    padding: 32px;
+    text-decoration: none;
+    transition: var(--transition);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0) 100%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: 0;
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 40px rgba(90, 50, 230, 0.15);
+      border-color: rgba(90, 50, 230, 0.3);
+
+      &::before {
+        opacity: 1;
+      }
+    }
+
+    &--main {
+      grid-column: span 4;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 60px 40px;
+      background: linear-gradient(135deg, var(--bg-card) 0%, rgba(90, 50, 230, 0.03) 100%);
+      border: 1px solid rgba(90, 50, 230, 0.15);
+
+      @media (max-width: 992px) {
+        grid-column: span 2;
+      }
+      @media (max-width: 576px) {
+        grid-column: span 1;
+      }
+
+      .bento-card__content {
+        position: relative;
+        z-index: 2;
+        max-width: 600px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        h3 {
+          font-size: 2.2rem;
+          margin-bottom: 16px;
+          color: var(--text-primary);
+        }
+
+        p {
+          font-size: 1.15rem;
+          color: var(--text-secondary);
+          margin-bottom: 32px;
+          line-height: 1.6;
+        }
+      }
+
+      .bento-card__bg-decoration {
+        position: absolute;
+        top: -100px;
+        right: -100px;
+        width: 300px;
+        height: 300px;
+        background: radial-gradient(circle, rgba(90, 50, 230, 0.08) 0%, transparent 70%);
+        border-radius: 50%;
+        z-index: 1;
+      }
+      
+      .bento-card__bg-decoration-2 {
+        position: absolute;
+        bottom: -50px;
+        left: -50px;
+        width: 200px;
+        height: 200px;
+        background: radial-gradient(circle, rgba(0, 195, 255, 0.05) 0%, transparent 70%);
+        border-radius: 50%;
+        z-index: 1;
+      }
+    }
+
+    &--social {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 20px;
+      padding: 30px;
+      background: var(--bg-card);
+
+      .contact__icon {
+        width: 56px;
+        height: 56px;
+        border-radius: var(--radius-md);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(90, 50, 230, 0.05);
+        color: var(--accent-purple);
+        transition: all 0.3s ease;
+
+        svg {
+          width: 28px;
+          height: 28px;
+        }
+
+        &.email-icon { color: #EA4335; background: rgba(234, 67, 53, 0.1); }
+        &.wpp-icon { color: #25D366; background: rgba(37, 211, 102, 0.1); }
+        &.linkedin-icon { color: #0A66C2; background: rgba(10, 102, 194, 0.1); }
+        &.github-icon { color: var(--text-primary); background: rgba(0, 0, 0, 0.05); }
+      }
+
+      &:hover .contact__icon {
+        transform: scale(1.1);
+      }
+
+      .contact__details {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        overflow: hidden;
+
+        h3 {
+          font-size: 1.2rem;
+          color: var(--text-primary);
+          margin-bottom: 4px;
+        }
+
+        p {
+          color: var(--text-secondary);
+          font-size: 0.85rem;
+          font-family: 'Fira Code', monospace;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+    }
+  }
+}

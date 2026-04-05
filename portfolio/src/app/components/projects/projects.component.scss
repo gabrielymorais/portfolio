@@ -1,0 +1,134 @@
+.projects {
+  .project-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: var(--transition);
+    
+    &:hover {
+      border-color: var(--border-accent);
+      box-shadow: var(--shadow-glow);
+    }
+  }
+
+  // Estilo do Cartão em Destaque
+  .project-featured {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    margin-bottom: 40px;
+
+    @media (max-width: 992px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .project-card__visual {
+    background: rgba(90, 50, 230, 0.03);
+    border-right: 1px solid var(--border);
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 380px;
+    position: relative;
+    overflow: hidden;
+
+    @media (max-width: 992px) {
+      min-height: 250px;
+      border-right: none;
+      border-bottom: 1px solid var(--border);
+    }
+  }
+
+  .project-card__mockup {
+    width: 90%;
+    height: 85%;
+    background: #ffffff;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    box-shadow: 0 20px 40px rgba(90, 50, 230, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    .project-card__image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .project-card__content {
+    padding: 40px;
+
+    @media (max-width: 768px) {
+      padding: 30px 20px;
+    }
+
+    h3 {
+      font-size: 1.8rem;
+      margin: 16px 0;
+    }
+
+    .project-card__subtitle {
+      font-size: 1.1rem;
+      color: var(--text-secondary);
+      font-weight: 500;
+    }
+
+    p {
+      color: var(--text-secondary);
+      margin-bottom: 24px;
+    }
+  }
+
+  .project-card__stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 24px;
+    
+    .tag {
+      background: rgba(139, 92, 246, 0.1);
+      border-color: rgba(139, 92, 246, 0.2);
+      color: var(--accent-purple);
+    }
+  }
+
+  .project-card__highlights {
+    list-style: none;
+    margin-bottom: 32px;
+
+    li {
+      margin-bottom: 8px;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+  }
+
+  .project-card__actions {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  // Estilo do Grid Secundário
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+
+    .project-secondary {
+      h3 {
+        font-size: 1.4rem;
+        margin-top: 0;
+      }
+    }
+  }
+}

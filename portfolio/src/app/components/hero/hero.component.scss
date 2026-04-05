@@ -1,0 +1,172 @@
+.hero {
+  min-height: 100vh; // Garante que preencha a tela
+  display: flex;
+  align-items: center;
+  padding-top: 120px; // Compensar o Header fixo
+  position: relative;
+  overflow: hidden;
+
+  &__container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: center;
+
+    @media (max-width: 992px) {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+  }
+
+  &__content {
+    z-index: 2;
+    @media (max-width: 992px) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+
+  &__title {
+    font-size: clamp(2.5rem, 6vw, 4.2rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 16px;
+    letter-spacing: -0.02em;
+  }
+
+  &__subtitle {
+    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+    color: var(--text-secondary);
+    font-weight: 500;
+    margin-bottom: 24px;
+  }
+
+  &__description {
+    font-size: 1.1rem;
+    max-width: 540px;
+    margin-bottom: 40px;
+    color: var(--text-muted);
+  }
+
+  &__actions {
+    display: flex;
+    gap: 16px;
+
+    @media (max-width: 480px) {
+      flex-direction: column;
+      width: 100%;
+      
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  }
+
+  // --- Visual Decorativo ---
+  &__visual {
+    position: relative;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    @media (max-width: 992px) {
+      display: none; // Esconde em telas menores para focar no conteúdo
+    }
+  }
+
+  &__card-abstract {
+    width: 280px;
+    height: 380px;
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    box-shadow: 0 30px 60px rgba(90, 50, 230, 0.15), inset 0 0 40px rgba(255,255,255,0.8);
+    transform: rotate(3deg);
+    overflow: hidden;
+
+    .hero__profile-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__blob {
+    position: absolute;
+    filter: blur(90px);
+    opacity: 0.5;
+    z-index: 1;
+
+    &.hero__blob--1 {
+      width: 300px;
+      height: 300px;
+      background: var(--accent-cyan);
+      top: -50px;
+      right: -50px;
+      border-radius: 50%;
+    }
+
+    &.hero__blob--2 {
+      width: 250px;
+      height: 250px;
+      background: var(--accent-cyan);
+      bottom: -30px;
+      left: 20px;
+      border-radius: 50%;
+    }
+  }
+
+  // Interatividade: Badges Flutuantes
+  &__badge {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #ffffff;
+    padding: 12px 20px;
+    border-radius: 100px;
+    box-shadow: 0 10px 30px rgba(90, 50, 230, 0.15);
+    border: 1px solid rgba(90, 50, 230, 0.1);
+    z-index: 5;
+    cursor: default;
+
+    &-icon {
+      font-size: 1.5rem;
+    }
+
+    &-text {
+      display: flex;
+      flex-direction: column;
+      
+      span {
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      strong {
+        font-size: 0.95rem;
+        color: var(--text-primary);
+      }
+    }
+
+    &--top {
+      top: 40px;
+      right: 0px;
+      animation: float-delayed 5s infinite;
+    }
+
+    &--bottom {
+      bottom: 60px;
+      left: -20px;
+    }
+  }
+}

@@ -1,0 +1,87 @@
+.timeline {
+  &__container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    padding-left: 30px; // Espaço para a linha no mobile
+  }
+
+  &__line {
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    bottom: 10px;
+    width: 2px;
+    background: var(--border);
+  }
+
+  &__item {
+    position: relative;
+    margin-bottom: 40px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &__dot {
+    position: absolute;
+    left: -26px; // Para alinhar com a linha
+    top: 24px;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: var(--accent-cyan);
+    box-shadow: 0 0 10px var(--accent-cyan);
+    z-index: 1;
+    border: 3px solid var(--bg-primary);
+    animation: pulse-glow 3s infinite;
+  }
+
+  &__content {
+    padding: 30px;
+    margin-left: 20px;
+
+    h3 {
+      font-size: 1.3rem;
+      margin: 12px 0 4px;
+    }
+
+    .timeline__subtitle {
+      color: var(--accent-cyan);
+      font-weight: 500;
+      margin-bottom: 16px;
+      font-size: 0.95rem;
+    }
+
+    p {
+      margin-bottom: 0;
+    }
+  }
+
+  &__languages {
+    max-width: 800px;
+    margin: 60px auto 0;
+    
+    .card {
+      padding: 30px;
+    }
+
+    ul {
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 30px;
+      margin-top: 16px;
+
+      li {
+        font-size: 1.05rem;
+        color: var(--text-secondary);
+
+        strong {
+          color: var(--text-primary);
+        }
+      }
+    }
+  }
+}

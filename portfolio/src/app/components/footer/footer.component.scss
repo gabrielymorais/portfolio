@@ -1,0 +1,40 @@
+.footer {
+  padding: 40px 0;
+  border-top: 1px solid var(--border);
+  background: var(--bg-secondary);
+  text-align: center;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.25rem;
+    font-weight: 700;
+    
+    .gradient-text {
+      font-family: 'Fira Code', monospace;
+    }
+
+    &-text {
+      color: var(--text-primary);
+    }
+  }
+
+  &__role {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+  }
+
+  &__copyright {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-top: 16px;
+  }
+}
