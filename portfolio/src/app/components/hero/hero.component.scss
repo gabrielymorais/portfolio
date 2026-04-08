@@ -1,15 +1,13 @@
 .hero {
-  min-height: 100vh; // Garante que preencha a tela
+  min-height: 100vh;
   display: flex;
   align-items: center;
-  padding-top: 120px; // Compensar o Header fixo
-  position: relative;
-  overflow: hidden;
+  padding-top: 100px;
 
   &__container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 60px;
     align-items: center;
 
     @media (max-width: 992px) {
@@ -20,6 +18,7 @@
 
   &__content {
     z-index: 2;
+
     @media (max-width: 992px) {
       display: flex;
       flex-direction: column;
@@ -27,26 +26,35 @@
     }
   }
 
-  &__title {
-    font-size: clamp(2.5rem, 6vw, 4.2rem);
-    font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: 16px;
-    letter-spacing: -0.02em;
+  &__name-tag {
+    display: inline-block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent-purple);
+    margin-bottom: 20px;
   }
 
-  &__subtitle {
-    font-size: clamp(1.1rem, 2.5vw, 1.4rem);
-    color: var(--text-secondary);
-    font-weight: 500;
+  &__title {
+    font-size: clamp(2.6rem, 5.5vw, 4rem);
+    font-weight: 800;
+    line-height: 1.1;
+    letter-spacing: 0.05em;
     margin-bottom: 24px;
+    color: var(--text-primary);
+
+    span {
+      color: var(--accent-purple);
+    }
   }
 
   &__description {
-    font-size: 1.1rem;
-    max-width: 540px;
+    font-size: 1rem;
+    max-width: 580px;
     margin-bottom: 40px;
     color: var(--text-muted);
+    line-height: 1.7;
   }
 
   &__actions {
@@ -56,7 +64,7 @@
     @media (max-width: 480px) {
       flex-direction: column;
       width: 100%;
-      
+
       .btn {
         width: 100%;
         justify-content: center;
@@ -64,109 +72,75 @@
     }
   }
 
-  // --- Visual Decorativo ---
+  // Visual lado direito
   &__visual {
     position: relative;
-    height: 400px;
     display: flex;
     justify-content: center;
     align-items: center;
+    height: 520px;
 
     @media (max-width: 992px) {
-      display: none; // Esconde em telas menores para focar no conteúdo
+      display: none;
     }
   }
 
-  &__card-abstract {
-    width: 280px;
-    height: 380px;
-    background: rgba(255, 255, 255, 0.9);
-    border: 1px solid var(--border);
-    border-radius: var(--radius-lg);
-    backdrop-filter: blur(10px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2;
-    box-shadow: 0 30px 60px rgba(90, 50, 230, 0.15), inset 0 0 40px rgba(255,255,255,0.8);
-    transform: rotate(3deg);
+  &__circle {
+    width: 500px;
+    height: 500px;
+    border-radius: 24px;
+    background: #ede9fe;
     overflow: hidden;
-
-    .hero__profile-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  }
-
-  &__blob {
-    position: absolute;
-    filter: blur(90px);
-    opacity: 0.5;
-    z-index: 1;
-
-    &.hero__blob--1 {
-      width: 300px;
-      height: 300px;
-      background: var(--accent-cyan);
-      top: -50px;
-      right: -50px;
-      border-radius: 50%;
-    }
-
-    &.hero__blob--2 {
-      width: 250px;
-      height: 250px;
-      background: var(--accent-cyan);
-      bottom: -30px;
-      left: 20px;
-      border-radius: 50%;
-    }
-  }
-
-  // Interatividade: Badges Flutuantes
-  &__badge {
-    position: absolute;
     display: flex;
-    align-items: center;
-    gap: 12px;
-    background: #ffffff;
-    padding: 12px 20px;
-    border-radius: 100px;
-    box-shadow: 0 10px 30px rgba(90, 50, 230, 0.15);
-    border: 1px solid rgba(90, 50, 230, 0.1);
-    z-index: 5;
-    cursor: default;
+    align-items: flex-end;
+    justify-content: center;
+    position: relative;
+    z-index: 2;
+  }
 
-    &-icon {
-      font-size: 1.5rem;
+  &__profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+  }
+
+  // Pontos decorativos
+  &__dot {
+    position: absolute;
+    border-radius: 50%;
+    z-index: 3;
+
+    &--1 {
+      width: 16px;
+      height: 16px;
+      background: var(--accent-purple);
+      top: 60px;
+      right: 60px;
     }
 
-    &-text {
-      display: flex;
-      flex-direction: column;
-      
-      span {
-        font-size: 0.75rem;
-        color: var(--text-muted);
-        text-transform: uppercase;
-        letter-spacing: 0.5px;
-      }
-      strong {
-        font-size: 0.95rem;
-        color: var(--text-primary);
-      }
+    &--2 {
+      width: 10px;
+      height: 10px;
+      background: var(--accent-purple);
+      top: 100px;
+      left: 40px;
     }
 
-    &--top {
-      top: 40px;
-      right: 0px;
-      animation: float-delayed 5s infinite;
+    &--3 {
+      width: 12px;
+      height: 12px;
+      background: #a78bfa;
+      bottom: 80px;
+      right: 30px;
     }
 
-    &--bottom {
-      bottom: 60px;
-      left: -20px;
+    &--4 {
+      width: 8px;
+      height: 8px;
+      background: var(--accent-purple);
+      bottom: 120px;
+      left: 60px;
     }
   }
 }
